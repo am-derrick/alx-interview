@@ -1,14 +1,24 @@
 #!/usr/bin/python3
-"""Pascal's Triangle"""
+""" Module for Pascal's triangle """
 
 
 def pascal_triangle(n):
-"""Returns a list of integers representing pascal's triangle of n"""
-if n <= 0:
-return []
+    """ Returns list of integers representing Pascal's triangle of n """
 
-pascal = [[] for i in range(n)]
+    if n <= 0:
+        return []
 
-for li in range(n):
-for col in range(li+1):
-if
+    """ initialize array """
+    pascal = [[] for idx in range(n)]
+
+    for line in range(n):
+        for col in range(line+1):
+            if(col < line):
+                if(col == 0):
+                    pascal[line].append(1)
+                else:
+                    pascal[line].append(pascal[line-1][col] + pascal[line-1][col-1])
+            elif(col == line):
+                pascal[line].append(1)
+
+    return pascal
