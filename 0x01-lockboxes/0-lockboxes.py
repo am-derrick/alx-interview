@@ -10,16 +10,24 @@ def canUnlockAll(boxes):
     if not boxes:
         return False
     size = len(boxes)
-    check = {}
+    keys = set()
+    boxes_open = []
     index = 0
 
-    for box in boxes:
-        if len(box) == 0 or index == 0:
-            check[index] = -1
-        for key in box:
-            if key < size and key != index:
-                check[key] = key
-        if len(check) == size
-            return True
-        index += 1
-    return False
+    while index < length:
+        i = index
+        boxes_open.append(index)
+        keys.update(boxes[index])
+        for key in keys:
+            if key != 0 and key < size and key not in boxes_open:
+                index = key
+                break
+        if i != index:
+            continue
+        else:
+            break
+
+    for index in range(size):
+        if index not in boxes_open and index != 0:
+            return False
+    return True
