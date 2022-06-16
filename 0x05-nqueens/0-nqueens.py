@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module efor NQueens
+"""
 import sys
 
 
